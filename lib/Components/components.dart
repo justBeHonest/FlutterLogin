@@ -8,7 +8,6 @@ import 'package:untitled1/Pages/user_details_page.dart';
 import 'package:untitled1/Services/user_service.dart';
 
 class Components {
-  //final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   UserService userService = UserService();
 
   Widget MyLoginScreenTextFormField(
@@ -22,7 +21,7 @@ class Components {
           fillColor: ColorConstants.WHITE,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.0),
-            borderSide: BorderSide(),
+            borderSide: const BorderSide(),
           ),
         ),
       ),
@@ -41,7 +40,7 @@ class Components {
           fillColor: ColorConstants.WHITE,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.0),
-            borderSide: BorderSide(),
+            borderSide: const BorderSide(),
           ),
         ),
       ),
@@ -56,7 +55,7 @@ class Components {
         elevation: 24,
         title: Text(
           mesaj,
-          style: TextStyle(
+          style: const TextStyle(
             color: ColorConstants.BLUE,
           ),
         ),
@@ -129,7 +128,7 @@ class Components {
   RoundedRectangleBorder roundedRectangleBorder() {
     return RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10),
-      side: BorderSide(
+      side: const BorderSide(
         color: ColorConstants.BLUE,
         width: 4.0,
       ),
@@ -172,7 +171,7 @@ class Components {
         shape: roundedRectangleBorder(),
         subtitle: Text(text),
         trailing: OutlinedButton(
-          child: Text('Düzenle'),
+          child: const Text(StringConstants.CREATE_DIALOG_DUZENLE),
           onPressed: () {
             if (editingPlace == DataBaseConstants.DB_NAME_FIELD) {
               // İsmini Güncelleyecekse
@@ -206,7 +205,7 @@ class Components {
           content: TextField(
             autofocus: true,
             controller: controller,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               border: OutlineInputBorder(),
               labelText: StringConstants.CREATE_DIALOG_ISIM,
             ),
@@ -216,13 +215,15 @@ class Components {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.resolveWith<Color>(
                   (Set<MaterialState> states) {
-                    if (states.contains(MaterialState.pressed))
-                      return Color(0xFFFFE4E1);
-                    return Color(0xFFFA9D93); // Use the component's default.
+                    if (states.contains(MaterialState.pressed)) {
+                      return const Color(0xFFFFE4E1);
+                    }
+                    return const Color(
+                        0xFFFA9D93); // Use the component's default.
                   },
                 ),
               ),
-              child: Text(
+              child: const Text(
                 StringConstants.CREATE_DIALOG_IPTAL,
                 style: TextStyle(color: ColorConstants.WHITE),
               ),
@@ -231,7 +232,7 @@ class Components {
               },
             ),
             OutlinedButton(
-              child: Text(StringConstants.CREATE_DIALOG_GUNCELLE),
+              child: const Text(StringConstants.CREATE_DIALOG_GUNCELLE),
               onPressed: () {
                 userService.updateName(
                     newData: controller.text, currentUserInfo: ui);
@@ -277,7 +278,7 @@ class Components {
                   },
                 ),
               ),
-              child: Text(
+              child: const Text(
                 StringConstants.CREATE_DIALOG_IPTAL,
                 style: TextStyle(color: ColorConstants.WHITE),
               ),
@@ -286,7 +287,7 @@ class Components {
               },
             ),
             OutlinedButton(
-              child: Text(StringConstants.CREATE_DIALOG_GUNCELLE),
+              child: const Text(StringConstants.CREATE_DIALOG_GUNCELLE),
               onPressed: () {
                 userService.updateLastName(
                     newData: controller.text, currentUserInfo: ui);
@@ -300,7 +301,7 @@ class Components {
   }
 
   InputDecoration inputDecoration() {
-    return InputDecoration(
+    return const InputDecoration(
       border: OutlineInputBorder(),
       labelText: StringConstants.CREATE_DIALOG_SOY_ISIM,
     );

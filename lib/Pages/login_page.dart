@@ -7,11 +7,11 @@ import 'package:untitled1/Pages/users_page.dart';
 import 'package:untitled1/Services/user_service.dart';
 
 class LoginPage extends StatelessWidget {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
-  UserService _userService = UserService();
-  Components _components = Components();
+  final UserService _userService = UserService();
+  final Components _components = Components();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class LoginPage extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: Center(
+        title: const Center(
           child: Text(StringConstants.LOGIN_SCREEN_APPBAR_TEXT),
         ),
       ),
@@ -49,14 +49,17 @@ class LoginPage extends StatelessWidget {
     try {
       UserInformations ui = await _userService.signIn(
           _emailController.text.trim(), _passwordController.text.trim());
-        Navigator.push(
-          context,
-          BouncyPageRoute(
-            widget: UsersPage(ui: ui),
-          ),
-        );
+      Navigator.push(
+        context,
+        BouncyPageRoute(
+          widget: UsersPage(ui: ui),
+        ),
+      );
     } catch (exception) {
-      _components.dialogGoster(context: context, mesaj: StringConstants.LOGIN_SCREEN_EXCPETION + (exception.toString()));
+      _components.dialogGoster(
+          context: context,
+          mesaj:
+              StringConstants.LOGIN_SCREEN_EXCPETION + (exception.toString()));
     }
   }
 }

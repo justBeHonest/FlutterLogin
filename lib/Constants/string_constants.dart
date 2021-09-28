@@ -20,7 +20,8 @@ class StringConstants {
   static const String USER_DETAILS_PAGE_SOYADI = 'SOYADI';
   static const String USER_DETAILS_PAGE_EMAIL = 'EMAIL';
   static const String USER_DETAILS_PAGE_PAROLA = 'PAROLA';
-
+  static const String USER_DETAILS_PAGE_HATA_OLUSTU_MESSAGE =
+      'Hata Oluştu Lütfen Daha Sonra Tekrar Deneyiniz.';
   static const String USER_DETAILS_PAGE_EDIT_LAST_NAME_DIALOG_MESSAGE =
       'Yeni soy isminizi giriniz';
 
@@ -29,4 +30,5 @@ class StringConstants {
   static const String CREATE_DIALOG_SOY_ISIM = 'Soy isim';
   static const String CREATE_DIALOG_IPTAL = 'İptal';
   static const String CREATE_DIALOG_GUNCELLE = 'Güncelle';
+  static const String CREATE_DIALOG_DUZENLE = 'Düzenle';
 }
