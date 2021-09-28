@@ -12,6 +12,7 @@ class StringConstants {
   /// USERS PAGE
   static const String USERS_PAGE_APPBAR_TITLE = 'Kayıtlı Kullanıcılar';
 
+
   /// USER DETAILS PAGE
   static const String USER_DETAILS_PAGE_APPBAR_TITLE = 'Kullanıcı Detayları';
   static const String USER_DETAILS_PAGE_EDIT_NAME_DIALOG_MESSAGE =
